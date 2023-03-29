@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 
 import axios from "axios";
+import SliderCalculator from "../../src/components/sliderCalculator";
 import Graph from "../../src/components/graph";
-import SliderCalculator from "./sliderCalculator";
 
 function Calculator() {
   const [monthlyInvestment, setMonthlyInvestment] = useState(10000);
@@ -17,7 +17,7 @@ function Calculator() {
 
   const onUpdateValue = (event, type, minimum, maximum) => {
     const val = event.target.value;
-    let sliderValue = val === "" ? 0 : parseInt(val);
+    let sliderValue = val === "" ? 0 : Number(val);
 
     if (validate(minimum, maximum, sliderValue)) {
       setInvalidInput({ [type]: true });
@@ -59,6 +59,12 @@ function Calculator() {
       .replace(/\D/g, "")
       .replace(/(\d+?)(?=(\d\d)+(\d)(?!\d))(\.\d+)?/g, "$1,");
   };
+
+  // Converted amount in Lacks
+  const rupeesInlack = (amount) => {
+    return `${amount / 100000}`;
+  };
+
   // axios call for graph
 
   useEffect(() => {
@@ -100,7 +106,8 @@ function Calculator() {
               steps={50}
               value={monthlyInvestment}
               inputVal={monthlyInvestment}
-              onUpdateValue={(event, type, minimum, maximum) => onUpdateValue(event, type, minimum, maximum)
+              onUpdateValue={(event, type, minimum, maximum) =>
+                onUpdateValue(event, type, minimum, maximum)
               }
               invalidInputStatus={invalidInput}
             />
@@ -112,7 +119,8 @@ function Calculator() {
               steps={1}
               value={investmentPeriod}
               inputVal={investmentPeriod}
-              onUpdateValue={(event, type, minimum, maximum) => onUpdateValue(event, type, minimum, maximum)
+              onUpdateValue={(event, type, minimum, maximum) =>
+                onUpdateValue(event, type, minimum, maximum)
               }
               invalidInputStatus={invalidInput}
             />
@@ -124,7 +132,8 @@ function Calculator() {
               steps={0.1}
               value={rateOfReturn}
               inputVal={rateOfReturn}
-              onUpdateValue={(event, type, minimum, maximum) =>onUpdateValue(event, type, minimum, maximum)
+              onUpdateValue={(event, type, minimum, maximum) =>
+                onUpdateValue(event, type, minimum, maximum)
               }
               invalidInputStatus={invalidInput}
             />
@@ -136,7 +145,8 @@ function Calculator() {
               steps={1}
               value={yearlyIncrement}
               inputVal={yearlyIncrement}
-              onUpdateValue={(event, type, minimum, maximum) =>onUpdateValue(event, type, minimum, maximum)
+              onUpdateValue={(event, type, minimum, maximum) =>
+                onUpdateValue(event, type, minimum, maximum)
               }
               invalidInputStatus={invalidInput}
             />
@@ -145,6 +155,7 @@ function Calculator() {
             result={result}
             investmentPeriod={investmentPeriod}
             toIndianRupees={toIndianRupees}
+            rupeesInlack ={rupeesInlack}
           />
         </div>
       </div>

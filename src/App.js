@@ -1,6 +1,6 @@
 import "../src/Media/scss/main.css";
 import React from "react";
-import SipCalculator from "../../client/src/components/sipCalculator";
+import SipCalculator from "../../InvestwellFrontend/src/components/sipCalculator";
 
 function App(){
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Label } from "recharts";
+import { CartesianGrid, Label } from "recharts";
 import {
   LineChart,
   Line,
@@ -13,7 +13,7 @@ import {
 // Handling Graph area using inputs from sliders
  
 function Graph(props) {
-
+  
   return (
     <>
       <div className="rightContainer">
@@ -32,7 +32,8 @@ function Graph(props) {
             <span className="currencyRupeeInPara">
               ₹{" "}
               {props.result && props.toIndianRupees(
-                Number(props.result.sip - props.result.totalInvestmentTillDate)
+                // Number(props.result.sip - props.result.totalInvestmentTillDate)
+                Number(props.result.capital)
               )}
             </span>{" "}
             as potential capital gains on your investment of
@@ -63,25 +64,27 @@ function Graph(props) {
               />
             </XAxis>
 
-            <YAxis stroke="#000000" fontWeight="bold" type="investment">
+            <YAxis stroke="#000000" fontWeight="bold" type="investment" tickFormatter={props.rupeesInlack} >
               <Label
                 value="Amount( ₹ in Lacs )"
                 position="left"
                 offset={5}
                 angle={270}
               />
+              
             </YAxis>
-            <Tooltip />
+            <CartesianGrid></CartesianGrid>
+            <  Tooltip formatter={(value) => new Intl.NumberFormat('en-IN').format(value)} />
             <Line
               type="monotone"
               dataKey="investment"
-              stroke="#2f50e8"
+              stroke="#03c988"
               r={0}
             />
             <Line
               type="monotone"
               dataKey="sipStepUp"
-              stroke="#4822a2"
+              stroke="#2c74b3"
               r={0}
 
             />

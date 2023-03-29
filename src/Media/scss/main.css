@@ -60,11 +60,11 @@
   right: 0;
 }
 * body .rightSideBox .rightMain .container .leftContainer .sliderArea .invalidInput {
-  color: white;
-  background-color: red;
-  padding: 3px;
+  color: red;
+  text-align: right;
+  padding: 2px;
   font-size: 14px;
-  margin: 2px 0px;
+  margin: 1px 0px;
 }
 * body .rightSideBox .rightMain .container .rightContainer {
   position: absolute;
@@ -104,26 +104,27 @@
   font-weight: bold;
 }
 
-svg, .graphDiv {
+svg,
+.graphDiv {
   overflow: visible;
   font-size: small;
 }
 
 @media (max-width: 1048px) {
-  .rightSideBox .calculator .rightMain .container .rightContainer {
+  .rightContainer {
     display: block;
     width: 80%;
   }
-  .rightSideBox .calculator .rightMain .container .rightContainer .paraGraph {
+  .rightContainer .paraGraph {
     font-size: small;
   }
-  .rightSideBox .calculator .rightMain .container .leftContainer .sliderArea .paraGraph {
+  .leftContainer .sliderArea .paraGraph {
     font-size: small;
   }
-  .rightSideBox .calculator .rightMain .container .leftContainer {
+  .leftContainer {
     width: 85%;
   }
-  .rightSideBox .calculator .rightMain .container .rightContainer .textForGraph .sipAmount {
+  .rightContainer .textForGraph .sipAmount {
     font-size: larger;
     padding: 20px 5px;
   }

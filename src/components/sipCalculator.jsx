@@ -1,5 +1,5 @@
 import React from 'react';
-import RightPanel from '../../../client/src/components/rightPanel';
+import RightPanel from '../../src/components/rightPanel';
 
 // main function for Displaying left panel and right panel 
 

@@ -44,23 +44,23 @@
             border: 1px solid #eaebed;
             margin: 10px;
             display: inline-block;
-            .sliderArea{
-                margin: 15px;
-                padding: 7px;
-                overflow: visible;
-                .sliderInput{
-                    background-color: #f1f5fa;
-                    border: 1px solid rgb(233, 230, 230);
-                    position: absolute;
-                    right: 0;
-                }
-                .invalidInput{
-                    color: white;
-                    background-color: red;
-                    padding: 3px;
-                    font-size: 14px;
-                    margin: 2px 0px;
-                }
+            .sliderArea {
+              margin: 15px;
+              padding: 7px;
+              overflow: visible;
+              .sliderInput {
+                background-color: #f1f5fa;
+                border: 1px solid rgb(233, 230, 230);
+                position: absolute;
+                right: 0;
+              }
+              .invalidInput {
+                color: red;
+                text-align: right;
+                padding: 2px;
+                font-size: 14px;
+                margin: 1px 0px;
+              }
             }
           }
           .rightContainer {
@@ -89,7 +89,7 @@
                 font-weight: bold;
                 padding: 25px 0px;
               }
-              .currencyRupeeInPara{
+              .currencyRupeeInPara {
                 color: #ff6e31;
                 margin-left: 10px;
               }
@@ -106,9 +106,10 @@
   }
 }
 
-svg, .graphDiv{
-    overflow: visible;
-    font-size: small;
+svg,
+.graphDiv {
+  overflow: visible;
+  font-size: small;
 }
 
 @media  (max-width: 1048px){
