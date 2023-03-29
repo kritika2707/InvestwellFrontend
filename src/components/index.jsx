@@ -73,9 +73,10 @@ function Calculator() {
       })
       .then((res) => {
         if (res.data.status === -1) {
-          console.log(res.data);
+          console.log(res.data.message);
         } else {
           setResult(res.data.result);
+          
         }
       });
   }, [monthlyInvestment, investmentPeriod, rateOfReturn, yearlyIncrement]);
