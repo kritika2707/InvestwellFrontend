@@ -7,7 +7,6 @@ import Slider from "@mui/material/Slider";
 import MuiInput from "@mui/material/Input";
 
 // Changing and Displaying data for sliders
-
 const monthlyInvestmentArray = [
   {
     value: 500,
@@ -203,12 +202,14 @@ const labelArray = [
   expectedRateOfReturnArray,
   yearlyIncrementArray,
 ];
+
 const titleArray = [
   "Monthly Investment (Rs.)",
   "Investment Period (years)",
   "Expected Rate of Return (% p.a)",
   "Yearly Increment (%)",
 ];
+
 const Input2 = styled(MuiInput)`
   width: 80px;
 `;
@@ -218,7 +219,6 @@ function valuetext(value) {
 }
 // updating slider values
 function SliderCalculator(props) {
-
   return (
     <div className="sliderArea">
       <Box sx={{ maxWidth: 550 }}>
@@ -229,10 +229,10 @@ function SliderCalculator(props) {
 
           <Grid className="sliderInput" item>
             <Input2
-              value={props.value}
+              value={props.invalidInputStatus[props.type] ? props.inputChange : props.value}
               size="small"
-              // onBlur={(event)=>props.handleBlur(event, props.type)}
-              onChange={(event)=>props.onUpdateValue(event, props.type, props.minimum, props.maximum)}
+              onBlur={(event)=>props.onUpdateValue(event, props.type, "blur", props.minimum, props.maximum)}
+              onChange={(event)=>props.onUpdateValue(event, props.type, "input", props.minimum, props.maximum)}
               inputProps={{
                 step: props.steps,
                 minimum: props.minimum,
@@ -256,7 +256,7 @@ function SliderCalculator(props) {
               max={props.maximum}
               marks={labelArray[props.index]}
               value={props.value}
-              onChange={(event)=>props.onUpdateValue(event, props.type, props.minimum, props.maximum)}
+              onChange={(event)=>props.onUpdateValue(event, props.type, "input", props.minimum, props.maximum)}
               aria-labelledby="input-slider"
             />
           </Grid>

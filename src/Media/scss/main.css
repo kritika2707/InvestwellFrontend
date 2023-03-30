@@ -66,7 +66,7 @@
   font-size: 14px;
   margin: 1px 0px;
 }
-* body .rightSideBox .rightMain .container .rightContainer {
+* body .rightSideBox .rightMain .container .rightContainer, * body .rightSideBox .rightMain .container .error {
   position: absolute;
   width: 45%;
   height: 87%;
@@ -75,33 +75,37 @@
   margin: 10px;
   padding: 20px;
 }
-* body .rightSideBox .rightMain .container .rightContainer .textForGraph {
+* body .rightSideBox .rightMain .container .rightContainer .textForGraph, * body .rightSideBox .rightMain .container .error .textForGraph {
   font-size: 19px;
   padding: 10px 0px;
   color: grey;
   margin: 0px 12px;
 }
-* body .rightSideBox .rightMain .container .rightContainer .textForGraph .spanParaGraph {
+* body .rightSideBox .rightMain .container .rightContainer .textForGraph .spanParaGraph, * body .rightSideBox .rightMain .container .error .textForGraph .spanParaGraph {
   margin: 15px 0px;
 }
-* body .rightSideBox .rightMain .container .rightContainer .textForGraph .spanParaGraph .yearsDisplay {
+* body .rightSideBox .rightMain .container .rightContainer .textForGraph .spanParaGraph .yearsDisplay, * body .rightSideBox .rightMain .container .error .textForGraph .spanParaGraph .yearsDisplay {
   color: black;
   font-weight: bold;
 }
-* body .rightSideBox .rightMain .container .rightContainer .textForGraph .sipAmount {
+* body .rightSideBox .rightMain .container .rightContainer .textForGraph .sipAmount, * body .rightSideBox .rightMain .container .error .textForGraph .sipAmount {
   color: #2c74b3;
   margin: -20px 0px;
   font-weight: bold;
   padding: 25px 0px;
 }
-* body .rightSideBox .rightMain .container .rightContainer .textForGraph .currencyRupeeInPara {
+* body .rightSideBox .rightMain .container .rightContainer .textForGraph .currencyRupeeInPara, * body .rightSideBox .rightMain .container .error .textForGraph .currencyRupeeInPara {
   color: #ff6e31;
   margin-left: 10px;
 }
-* body .rightSideBox .rightMain .container .rightContainer .textForGraph .currencyRupeeInPara2 {
+* body .rightSideBox .rightMain .container .rightContainer .textForGraph .currencyRupeeInPara2, * body .rightSideBox .rightMain .container .error .textForGraph .currencyRupeeInPara2 {
   color: #03c988;
   margin-left: 10px;
   font-weight: bold;
+}
+
+.error {
+  color: red;
 }
 
 svg,

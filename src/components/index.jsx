@@ -11,20 +11,26 @@ function Calculator() {
   const [yearlyIncrement, setYearlyIncrement] = useState(10);
 
   const [invalidInput, setInvalidInput] = useState(false);
+  const [inputChange, setInputChange] = useState();
   const [result, setResult] = useState();
 
   // updating  input values to change graph data for backend
-
-  const onUpdateValue = (event, type, minimum, maximum) => {
+  const onUpdateValue = (event, type, changeType, minimum, maximum) => {
     const val = event.target.value;
-    let sliderValue = val === "" ? 0 : Number(val);
+    let sliderValue = val == "" ? 0 : Number(val);
 
     if (validate(minimum, maximum, sliderValue)) {
       setInvalidInput({ [type]: true });
       sliderValue = sliderValue > maximum ? maximum : minimum;
-    } else {
+    } 
+    else {
       setInvalidInput({ [type]: false });
     }
+    if (changeType == "blur")
+    {
+      setInvalidInput({[type]: false});
+    }
+    setInputChange(val);
 
     switch (type) {
       case "monthlyInvestment":
@@ -52,7 +58,6 @@ function Calculator() {
   };
 
   // Updating rupees in Indian standard
-
   const toIndianRupees = (sum) => {
     return sum
       .toString()
@@ -66,7 +71,6 @@ function Calculator() {
   };
 
   // axios call for graph
-
   useEffect(() => {
     axios
       .get("/getResult", {
@@ -79,13 +83,13 @@ function Calculator() {
       })
       .then((res) => {
         if (res.data.status === -1) {
-          console.log(res.data.message);
+          return setResult(res.data.message);
         } else {
           setResult(res.data.result);
-          
         }
       });
   }, [monthlyInvestment, investmentPeriod, rateOfReturn, yearlyIncrement]);
+
   return (
     <>
       <div className="rightMain">
@@ -106,9 +110,8 @@ function Calculator() {
               steps={50}
               value={monthlyInvestment}
               inputVal={monthlyInvestment}
-              onUpdateValue={(event, type, minimum, maximum) =>
-                onUpdateValue(event, type, minimum, maximum)
-              }
+              onUpdateValue={(event, type, changeType, minimum, maximum) => onUpdateValue(event, type, changeType, minimum, maximum)}
+              inputChange={inputChange}
               invalidInputStatus={invalidInput}
             />
             <SliderCalculator
@@ -119,9 +122,10 @@ function Calculator() {
               steps={1}
               value={investmentPeriod}
               inputVal={investmentPeriod}
-              onUpdateValue={(event, type, minimum, maximum) =>
-                onUpdateValue(event, type, minimum, maximum)
+              onUpdateValue={(event, type, changetype, minimum, maximum) =>
+                onUpdateValue(event, type, changetype, minimum, maximum)
               }
+              inputChange={inputChange}
               invalidInputStatus={invalidInput}
             />
             <SliderCalculator
@@ -132,9 +136,8 @@ function Calculator() {
               steps={0.1}
               value={rateOfReturn}
               inputVal={rateOfReturn}
-              onUpdateValue={(event, type, minimum, maximum) =>
-                onUpdateValue(event, type, minimum, maximum)
-              }
+              onUpdateValue={(event, type, changetype, minimum, maximum) => onUpdateValue(event, type, changetype, minimum, maximum)}
+              inputChange={inputChange}
               invalidInputStatus={invalidInput}
             />
             <SliderCalculator
@@ -145,18 +148,20 @@ function Calculator() {
               steps={1}
               value={yearlyIncrement}
               inputVal={yearlyIncrement}
-              onUpdateValue={(event, type, minimum, maximum) =>
-                onUpdateValue(event, type, minimum, maximum)
+              onUpdateValue={(event, type, changetype, minimum, maximum) =>
+                onUpdateValue(event, type, changetype, minimum, maximum)
               }
+              inputChange={inputChange}
               invalidInputStatus={invalidInput}
             />
           </div>
-          <Graph
+          
+          {typeof result === "string" ? <div className="error">{result}</div> : <Graph
             result={result}
             investmentPeriod={investmentPeriod}
             toIndianRupees={toIndianRupees}
-            rupeesInlack ={rupeesInlack}
-          />
+            rupeesInlack={rupeesInlack}
+          />}
         </div>
       </div>
     </>

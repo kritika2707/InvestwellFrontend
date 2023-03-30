@@ -19,23 +19,23 @@ function Graph(props) {
       <div className="rightContainer">
         <div className="textForGraph">
           <span className="spanParaGraph">
-            After{" "}
+            After &nbsp;
             <span className="yearsDisplay">
-              {" "}
+              &nbsp;
               {props.investmentPeriod} year's
-            </span>{" "}
+            </span>&nbsp;
             you will have
           </span>
           <h2 className="sipAmount">₹ {props.result && props.toIndianRupees(Number(props.result.sip))}</h2>
           <span className="paraGraph">
             That's
             <span className="currencyRupeeInPara">
-              ₹{" "}
+              ₹&nbsp;
               {props.result && props.toIndianRupees(
                 // Number(props.result.sip - props.result.totalInvestmentTillDate)
                 Number(props.result.capital)
               )}
-            </span>{" "}
+            </span>&nbsp;
             as potential capital gains on your investment of
             <span className="currencyRupeeInPara2">
               ₹ {props.result && props.toIndianRupees(Number(props.result.totalInvestmentTillDate))}

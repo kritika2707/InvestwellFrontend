@@ -63,7 +63,7 @@
               }
             }
           }
-          .rightContainer {
+          .rightContainer, .error {
             position: absolute;
             width: 45%;
             height: 87%;
@@ -104,6 +104,9 @@
       }
     }
   }
+}
+.error {
+ color:red;                
 }
 
 svg,
