@@ -1,4 +1,4 @@
-* {
+ * {
   font-weight: lighter;
   font-family: sans-serif;
   transform-style: preserve-3d;
@@ -20,15 +20,26 @@
       width: 88%;
       height: 100vh;
       position: absolute;
+
       .backBtn {
-        margin: 10px 5px;
+        color: #595959;
+        margin: 10px 5px 0px 20px;
+        padding: 0px 3px 1px 0px;
         font-weight: normal;
+        border-radius: 3px;
+        width: max-content;
+        cursor: pointer;
+      } 
+      .backBtn:hover{
+        color: #526fe4;
       }
+
       .rightMain {
         background-color: #fff;
-        padding: 0px 10px 10px 10px;
+        padding: 0px 10px 20px 10px;
         margin: 10px 20px;
         position: relative;
+        height: 100%;
         .calculatorText {
           padding: 0px 18px;
           font-weight: bold;
@@ -63,10 +74,11 @@
               }
             }
           }
-          .rightContainer, .error {
+          .rightContainer,
+          .error {
             position: absolute;
             width: 45%;
-            height: 87%;
+            height: 88%;
             display: inline-block;
             border: 1px solid #eaebed;
             margin: 10px;
@@ -106,7 +118,7 @@
   }
 }
 .error {
- color:red;                
+  color: red;
 }
 
 svg,
@@ -115,55 +127,79 @@ svg,
   font-size: small;
 }
 
-@media  (max-width: 1048px){
-  
-    .rightContainer{
+@media (max-width: 1000px) {
+  #root {
+    .rightContainer {
       display: block;
-      width: 80%;
+      width: 90%;
     }
-    .rightContainer .paraGraph{
+    .paraGraph {
       font-size: small;
+    }
+    .leftSideBox {
+      height: 100cqmax;
+    }
     
+    .leftContainer {
+      width: 95%;
     }
-    .leftContainer .sliderArea .paraGraph{
-      font-size: small;
+    .rightMain{
+      height: 100vh;
     }
-  
-    .leftContainer{
-      width: 85%;
-    }
-  
-    .rightContainer .textForGraph .sipAmount{
-      font-size: larger;
-      padding: 20px 5px;
-      
-    }
-  
-    .rightSideBox .calculator .rightMain .container .rightContainer .textForGraph .spanParaGraph {
-      font-size: small;
-      
+
+    .paraGraph{
+      font-size: 18px;
     }
   }
-  @media (max-width: 524px) {
-    *{
-      margin: 0%;
-      padding: 0%;
-    }
-    .leftSideBox{
+
+  .paraGraph {
+    font-size: 22px;
+  }
+
+  .sipAmount {
+    font-size: 22px;
+    padding: 20px 5px;
+  }
+  
+  .textForGraph{
+    .spanParaGraph {
+    font-size: 22px;
+  }
+}
+}
+
+@media (max-width: 768px) {
+  * {
+    margin: 0%;
+    padding: 0%;
+  }
+
+  #root {
+    .leftSideBox {
       display: none;
     }
-  
-    .rightSideBox{
+
+    .rightSideBox {
       width: 100%;
     }
-   
-    .rightSideBox .calculator .rightMain .container .rightContainer{
-      width: 88%;
-    } 
-    .rightSideBox .calculator .rightMain .container .leftContainer{
-      width: 96%;
+
+    .rightContainer {
+      width: 89%;
     }
-    .textForGraph span{
+    .leftContainer {
+      width: 95%;
+    }
+    .textForGraph { 
+      span {
       font-size: 20px;
+      }
     }
   }
+}
+@media (max-height: 560px) {
+  #root{
+    .rightSideBox {
+    height: 100%;
+    }
+  }
+}

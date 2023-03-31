@@ -24,14 +24,24 @@
   position: absolute;
 }
 * body .rightSideBox .backBtn {
-  margin: 10px 5px;
+  color: #595959;
+  margin: 10px 5px 0px 20px;
+  padding: 0px 3px 1px 0px;
   font-weight: normal;
+  border-radius: 3px;
+  width: -moz-max-content;
+  width: max-content;
+  cursor: pointer;
+}
+* body .rightSideBox .backBtn:hover {
+  color: #526fe4;
 }
 * body .rightSideBox .rightMain {
   background-color: #fff;
-  padding: 0px 10px 10px 10px;
+  padding: 0px 10px 20px 10px;
   margin: 10px 20px;
   position: relative;
+  height: 100%;
 }
 * body .rightSideBox .rightMain .calculatorText {
   padding: 0px 18px;
@@ -66,39 +76,46 @@
   font-size: 14px;
   margin: 1px 0px;
 }
-* body .rightSideBox .rightMain .container .rightContainer, * body .rightSideBox .rightMain .container .error {
+* body .rightSideBox .rightMain .container .rightContainer,
+* body .rightSideBox .rightMain .container .error {
   position: absolute;
   width: 45%;
-  height: 87%;
+  height: 88%;
   display: inline-block;
   border: 1px solid #eaebed;
   margin: 10px;
   padding: 20px;
 }
-* body .rightSideBox .rightMain .container .rightContainer .textForGraph, * body .rightSideBox .rightMain .container .error .textForGraph {
+* body .rightSideBox .rightMain .container .rightContainer .textForGraph,
+* body .rightSideBox .rightMain .container .error .textForGraph {
   font-size: 19px;
   padding: 10px 0px;
   color: grey;
   margin: 0px 12px;
 }
-* body .rightSideBox .rightMain .container .rightContainer .textForGraph .spanParaGraph, * body .rightSideBox .rightMain .container .error .textForGraph .spanParaGraph {
+* body .rightSideBox .rightMain .container .rightContainer .textForGraph .spanParaGraph,
+* body .rightSideBox .rightMain .container .error .textForGraph .spanParaGraph {
   margin: 15px 0px;
 }
-* body .rightSideBox .rightMain .container .rightContainer .textForGraph .spanParaGraph .yearsDisplay, * body .rightSideBox .rightMain .container .error .textForGraph .spanParaGraph .yearsDisplay {
+* body .rightSideBox .rightMain .container .rightContainer .textForGraph .spanParaGraph .yearsDisplay,
+* body .rightSideBox .rightMain .container .error .textForGraph .spanParaGraph .yearsDisplay {
   color: black;
   font-weight: bold;
 }
-* body .rightSideBox .rightMain .container .rightContainer .textForGraph .sipAmount, * body .rightSideBox .rightMain .container .error .textForGraph .sipAmount {
+* body .rightSideBox .rightMain .container .rightContainer .textForGraph .sipAmount,
+* body .rightSideBox .rightMain .container .error .textForGraph .sipAmount {
   color: #2c74b3;
   margin: -20px 0px;
   font-weight: bold;
   padding: 25px 0px;
 }
-* body .rightSideBox .rightMain .container .rightContainer .textForGraph .currencyRupeeInPara, * body .rightSideBox .rightMain .container .error .textForGraph .currencyRupeeInPara {
+* body .rightSideBox .rightMain .container .rightContainer .textForGraph .currencyRupeeInPara,
+* body .rightSideBox .rightMain .container .error .textForGraph .currencyRupeeInPara {
   color: #ff6e31;
   margin-left: 10px;
 }
-* body .rightSideBox .rightMain .container .rightContainer .textForGraph .currencyRupeeInPara2, * body .rightSideBox .rightMain .container .error .textForGraph .currencyRupeeInPara2 {
+* body .rightSideBox .rightMain .container .rightContainer .textForGraph .currencyRupeeInPara2,
+* body .rightSideBox .rightMain .container .error .textForGraph .currencyRupeeInPara2 {
   color: #03c988;
   margin-left: 10px;
   font-weight: bold;
@@ -114,46 +131,60 @@ svg,
   font-size: small;
 }
 
-@media (max-width: 1048px) {
-  .rightContainer {
+@media (max-width: 1000px) {
+  #root .rightContainer {
     display: block;
-    width: 80%;
+    width: 90%;
   }
-  .rightContainer .paraGraph {
+  #root .paraGraph {
     font-size: small;
   }
-  .leftContainer .sliderArea .paraGraph {
-    font-size: small;
+  #root .leftSideBox {
+    height: 100cqmax;
   }
-  .leftContainer {
-    width: 85%;
+  #root .leftContainer {
+    width: 95%;
   }
-  .rightContainer .textForGraph .sipAmount {
-    font-size: larger;
+  #root .rightMain {
+    height: 100vh;
+  }
+  #root .paraGraph {
+    font-size: 18px;
+  }
+  .paraGraph {
+    font-size: 22px;
+  }
+  .sipAmount {
+    font-size: 22px;
     padding: 20px 5px;
   }
-  .rightSideBox .calculator .rightMain .container .rightContainer .textForGraph .spanParaGraph {
-    font-size: small;
+  .textForGraph .spanParaGraph {
+    font-size: 22px;
   }
 }
-@media (max-width: 524px) {
+@media (max-width: 768px) {
   * {
     margin: 0%;
     padding: 0%;
   }
-  .leftSideBox {
+  #root .leftSideBox {
     display: none;
   }
-  .rightSideBox {
+  #root .rightSideBox {
     width: 100%;
   }
-  .rightSideBox .calculator .rightMain .container .rightContainer {
-    width: 88%;
+  #root .rightContainer {
+    width: 89%;
   }
-  .rightSideBox .calculator .rightMain .container .leftContainer {
-    width: 96%;
+  #root .leftContainer {
+    width: 95%;
   }
-  .textForGraph span {
+  #root .textForGraph span {
     font-size: 20px;
+  }
+}
+@media (max-height: 560px) {
+  #root .rightSideBox {
+    height: 100%;
   }
 }/*# sourceMappingURL=main.css.map */

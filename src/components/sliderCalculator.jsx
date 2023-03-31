@@ -1,12 +1,12 @@
-import React from "react";
-import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
-import Slider from "@mui/material/Slider";
-import MuiInput from "@mui/material/Input";
+import React from "react"
+import { styled } from "@mui/material/styles"
+import Box from "@mui/material/Box"
+import Grid from "@mui/material/Grid"
+import Typography from "@mui/material/Typography"
+import Slider from "@mui/material/Slider"
+import MuiInput from "@mui/material/Input"
 
-// Changing and Displaying data for sliders
+//  Sliders Labels
 const monthlyInvestmentArray = [
   {
     value: 500,
@@ -32,7 +32,7 @@ const monthlyInvestmentArray = [
     value: 100000,
     label: "100000",
   },
-];
+]
 
 const investmentPeriodArray = [
   {
@@ -95,133 +95,22 @@ const investmentPeriodArray = [
     value: 30,
     label: "30",
   },
-];
-
-const expectedRateOfReturnArray = [
-  {
-    value: 1,
-    label: "1",
-  },
-  {
-    value: 3.9,
-    label: "3.9",
-  },
-  {
-    value: 6.8,
-    label: "6.8",
-  },
-  {
-    value: 9.7,
-    label: "9.7",
-  },
-  {
-    value: 12.6,
-    label: "12.6",
-  },
-  {
-    value: 15.5,
-    label: "15.5",
-  },
-  {
-    value: 18.4,
-    label: "18.4",
-  },
-  {
-    value: 21.3,
-    label: "21.3",
-  },
-  {
-    value: 24.2,
-    label: "24.2",
-  },
-  {
-    value: 27.1,
-    label: "27.1",
-  },
-  {
-    value: 30,
-    label: "30",
-  },
-];
-
-const yearlyIncrementArray = [
-  {
-    value: 1,
-    label: "1",
-  },
-  {
-    value: 2,
-    label: "2",
-  },
-  {
-    value: 3,
-    label: "3",
-  },
-  {
-    value: 4,
-    label: "4",
-  },
-  
-  {
-    value: 5,
-    label: "5",
-  },
-  {
-    value: 6,
-    label: "6",
-  },
-  {
-    value: 7,
-    label: "7",
-  },
-  {
-    value: 8,
-    label: "8",
-  },
-  {
-    value: 9,
-    label: "9",
-  },
-  {
-    value: 10,
-    label: "10",
-  },
-  {
-    value: 11,
-    label: "11",
-  },
-  {
-    value: 12,
-    label: "12",
-  },
-];
-
-const labelArray = [
-  monthlyInvestmentArray,
-  investmentPeriodArray,
-  expectedRateOfReturnArray,
-  yearlyIncrementArray,
-];
+]
 
 const titleArray = [
   "Monthly Investment (Rs.)",
   "Investment Period (years)",
   "Expected Rate of Return (% p.a)",
   "Yearly Increment (%)",
-];
+]
 
-const Input2 = styled(MuiInput)`
-  width: 80px;
-`;
+const Input2 = styled(MuiInput) `width: 90px`
 
-function valuetext(value) {
-  return `${value}`;
-}
 // updating slider values
 function SliderCalculator(props) {
   return (
     <div className="sliderArea">
-      <Box sx={{ maxWidth: 550 }}>
+      <Box >
         <Grid className="demo2" container>
           <Grid item>
             <Typography gutterBottom>{titleArray[props.index]}</Typography>
@@ -230,7 +119,6 @@ function SliderCalculator(props) {
           <Grid className="sliderInput" item>
             <Input2
               value={props.invalidInputStatus[props.type] ? props.inputChange : props.value}
-              size="small"
               onBlur={(event)=>props.onUpdateValue(event, props.type, "blur", props.minimum, props.maximum)}
               onChange={(event)=>props.onUpdateValue(event, props.type, "input", props.minimum, props.maximum)}
               inputProps={{
@@ -245,25 +133,20 @@ function SliderCalculator(props) {
       
         {props.invalidInputStatus && props.invalidInputStatus[props.type] &&  <div className="invalidInput">Invalid Input</div>}
 
-        <Grid container>
-          <Grid item xs>
+        <Grid item xs>
             <Slider
-              aria-label="Custom marks"
               defaultValue={props.val}
-              getAriaValueText={valuetext}
               step={props.steps}
-              minimum={props.minimum}
+              min={props.minimum}
               max={props.maximum}
-              marks={labelArray[props.index]}
+              marks = {props.type == "monthlyInvestment" ? monthlyInvestmentArray : investmentPeriodArray}
               value={props.value}
               onChange={(event)=>props.onUpdateValue(event, props.type, "input", props.minimum, props.maximum)}
-              aria-labelledby="input-slider"
             />
-          </Grid>
         </Grid>
       </Box>
     </div>
-  );
+  )
 }
 
-export default SliderCalculator;
+export default SliderCalculator
